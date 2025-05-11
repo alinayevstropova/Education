@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="financial courses, Canada, financial planning, financial management, investment strategies, financial education, StackU"
+    />
+    <meta
+      name="description"
+      content="StackU is a financial education company in Canada specializing in financial courses, planning, management, and investment strategies. We provide personalized solutions to help you achieve your financial goals."
+    />
+    <title>StackU</title>
+    <link rel="icon" href="images/logo.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/basic.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo" href="./index.html">
+        <img src="./images/logo.png" alt="StackU" />
+      </a>
+      <nav class="header-nav">
+        <ul class="header-nav-list">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./price.html">Pricing</a></li>
+          <li><a href="./blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <a class="secondary-btn" href="./contact.html">Contact</a>
+      <button class="burger-btn burgerBtn">
+        <svg>
+          <use href="./images/sprite.svg#burger"></use>
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="contact-content">
+            <h2 class="title">Start Your Project with StackU!</h2>
+            <p class="descr">
+              We offer professional guidance and tailored solutions for your
+              financial projects. Contact us to discover how we can help you
+              achieve your financial goals in Canada.
+            </p>
+            <div class="contact-content-wrap">
+              <h3 class="subtitle">Contact Information</h3>
+              <ul class="contact-list">
+                <li class="contact-list-item">
+                  <svg>
+                    <use href="./images/sprite.svg#location"></use>
+                  </svg>
+                  <p class="descr">
+                    1801 Gerrard St E, Toronto, ON M4L 2B4, Canada
+                  </p>
+                </li>
+                <li class="contact-list-item">
+                  <svg>
+                    <use href="./images/sprite.svg#phone"></use>
+                  </svg>
+                  <p class="descr">+1 416 546 6261</p>
+                </li>
+                <li class="contact-list-item">
+                  <svg>
+                    <use href="./images/sprite.svg#email"></use>
+                  </svg>
+                  <p class="descr">
+                    <a href="mailto:info@stacku.ca">info@stacku.ca</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="contact-content-wrap">
+              <h3 class="subtitle">Hours</h3>
+              <p class="descr">
+                <svg>
+                  <use href="./images/sprite.svg#clock"></use>
+                </svg>
+                Mon-Fri: 9:00 AM - 6:00 PM
+              </p>
+            </div>
+          </div>
+          <form
+            class="contact-form"
+            onsubmit="window.location.href = './thank-you.html';return false"
+          >
+            <div class="form-group">
+              <label for="first-name">First Name</label>
+              <input
+                type="text"
+                id="first-name"
+                name="first-name"
+                required
+                pattern="[A-Za-z\s]{2,}"
+                title="The first name must contain at least 2 letters"
+              />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input
+                type="text"
+                id="last-name"
+                name="last-name"
+                required
+                pattern="[A-Za-z\s]{2,}"
+                title="The last name must contain at least 2 letters"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                pattern="\+?[0-9\s\-\(\)]{7,}"
+                title="Please enter a valid phone number"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Please enter a valid email address"
+              />
+            </div>
+            <div class="form-group">
+              <label for="service">Service</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Choose a service</option>
+                <option value="evaluation">Financial Planning</option>
+                <option value="strategy">Investment Strategy</option>
+                <option value="management">Financial Management</option>
+                <option value="innovation">Innovative Solutions</option>
+              </select>
+            </div>
+            <button type="submit" class="primary-btn">Send Message</button>
+          </form>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d721.3908400132968!2d-79.3154189303312!3d43.67805009819383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cc7304a2beb9%3A0x13b6d898c9a5f20a!2s1801%20Gerrard%20St%20E%2C%20Toronto%2C%20ON%20M4L%202B4!5e0!3m2!1sen!2sca!4v1746695216359!5m2!1sen!2sca"
+            loading="lazy"
+            class="contact-map"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-menu">
+          <h3>Menu</h3>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./price.html">Pricing</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-menu">
+          <h3>Service Pages</h3>
+          <ul>
+            <li>
+              <a href="./cookie-policy.html">Cookie Policy</a>
+            </li>
+            <li>
+              <a href="./privacy-policy.html">Privacy Policy</a>
+            </li>
+            <li><a href="./terms-of-use.html">Terms of Use</a></li>
+            <li><a href="./business-model.html">Business Model</a></li>
+            <li><a href="./disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Information</h3>
+          <p><strong>Phone:</strong> +1 416 546 6261</p>
+          <p>
+            <strong>Address:</strong> 1801 Gerrard St E, Toronto, ON M4L 2B4,
+            Canada
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:info@stacku.ca">info@stacku.ca</a>
+          </p>
+        </div>
+        <p class="footer-rights">© All rights reserved 2025</p>
+      </div>
+    </footer>
+
+    <div class="mobile-menu mobileMenu">
+      <button class="close-btn closeBtn">
+        <svg>
+          <use href="./images/sprite.svg#close"></use>
+        </svg>
+      </button>
+      <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+          <li><a class="mobile-nav-link" href="./index.html">Home</a></li>
+          <li><a class="mobile-nav-link" href="./about.html">About</a></li>
+          <li><a class="mobile-nav-link" href="./price.html">Pricing</a></li>
+          <li><a class="mobile-nav-link" href="./blog.html">Blog</a></li>
+        </ul>
+      </nav>
+      <a class="primary-btn mobile-nav-link" href="./contact.html">Contact</a>
+    </div>
+  </body>
+  <script src="./js/header-menu.js"></script>
+</html>
