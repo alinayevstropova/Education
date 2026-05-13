@@ -44,6 +44,11 @@ The Playwright suite checks:
 - Lead form validation and success state
 - Mobile navigation open and close behavior
 
+## Quality Workflow
+
+The project is prepared for GitHub Actions with a Playwright QA job that runs
+browser regression tests on pull requests and pushes to `main`.
+
 ## Portfolio Note
 
 This project now demonstrates visual design judgment, static-site architecture, responsive UI implementation, and automated browser testing. It is still a static GitHub Pages project, so no backend data is submitted from the forms.
