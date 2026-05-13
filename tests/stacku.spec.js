@@ -19,6 +19,7 @@ test.describe("StackU cinematic site", () => {
     await expect(page).toHaveTitle(/StackU Academy/);
     await expect(page.getByRole("heading", { name: /Learn money like the room depends on it/i })).toBeVisible();
     await expect(page.locator(".hero-bg")).toHaveAttribute("src", /cinematic-hero\.png/);
+    await expect(page.getByRole("heading", { name: /One vertical scroll/i })).toBeVisible();
     await expect(page.getByRole("heading", { name: /Built around decisions/i })).toBeVisible();
     await expect(page.getByRole("heading", { name: /Apply for the next cohort/i })).toBeVisible();
     await expectNoHorizontalOverflow(page);
@@ -35,6 +36,24 @@ test.describe("StackU cinematic site", () => {
     await page.getByRole("button", { name: "Team" }).click();
     await expect(page.getByText("Give everyone the same financial language.")).toBeVisible();
     await expect(page.getByText("Company-specific case simulations")).toBeVisible();
+  });
+
+  test("scroll-driven film reel advances through scenes", async ({ page }) => {
+    await page.goto("/");
+
+    await page.evaluate(() => {
+      const reel = document.querySelector("[data-cinema-reel]");
+      window.scrollTo(0, reel.offsetTop);
+    });
+    await expect(page.getByText("Money OS opens the frame.")).toBeVisible();
+
+    await page.evaluate(() => {
+      const reel = document.querySelector("[data-cinema-reel]");
+      window.scrollTo(0, reel.offsetTop + reel.offsetHeight * 0.82);
+    });
+
+    await expect(page.getByText("The plan gets defended.")).toBeVisible();
+    await expect(page.locator("[data-reel-count]")).toContainText("04 / 04");
   });
 
   test("lead form validates and gives local success feedback", async ({ page }) => {

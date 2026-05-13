@@ -137,8 +137,68 @@ function initParallax() {
   );
 }
 
+function initCinemaReel() {
+  const reel = document.querySelector("[data-cinema-reel]");
+  if (!reel) return;
+
+  const scenes = Array.from(reel.querySelectorAll("[data-reel-scene]"));
+  const count = reel.querySelector("[data-reel-count]");
+  const title = reel.querySelector("[data-reel-title]");
+  const text = reel.querySelector("[data-reel-text]");
+
+  const copy = [
+    {
+      title: "Money OS opens the frame.",
+      text:
+        "Start with a calm, cinematic map of income, debt, runway, and the next decision that matters.",
+    },
+    {
+      title: "Risk becomes visible.",
+      text:
+        "See emergency funds, volatility, and trade-offs move as one scene instead of a spreadsheet maze.",
+    },
+    {
+      title: "Markets shift color.",
+      text:
+        "Learn to read noise, incentives, and signal without chasing every headline.",
+    },
+    {
+      title: "The plan gets defended.",
+      text:
+        "Finish with a clear financial operating system you can explain in a real room.",
+    },
+  ];
+
+  function setActiveScene(index) {
+    scenes.forEach((scene, sceneIndex) => {
+      scene.classList.toggle("is-active", sceneIndex === index);
+    });
+
+    const accent = scenes[index]?.dataset.accent || "#d7b46a";
+    reel.style.setProperty("--cinema-accent", accent);
+    if (count) count.textContent = `${String(index + 1).padStart(2, "0")} / ${String(scenes.length).padStart(2, "0")}`;
+    if (title) title.textContent = copy[index].title;
+    if (text) text.textContent = copy[index].text;
+  }
+
+  function updateReel() {
+    const rect = reel.getBoundingClientRect();
+    const scrollable = Math.max(reel.offsetHeight - window.innerHeight, 1);
+    const progress = Math.min(Math.max(-rect.top / scrollable, 0), 1);
+    const activeIndex = Math.min(scenes.length - 1, Math.round(progress * (scenes.length - 1)));
+    reel.style.setProperty("--cinema-progress", progress.toFixed(4));
+    setActiveScene(activeIndex);
+  }
+
+  setActiveScene(0);
+  updateReel();
+  window.addEventListener("scroll", updateReel, { passive: true });
+  window.addEventListener("resize", updateReel);
+}
+
 initReveal();
 initTrackSwitcher();
 initPricingToggle();
 initLeadForm();
 initParallax();
+initCinemaReel();
