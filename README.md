@@ -1,34 +1,49 @@
-# Education Landing Page
+# StackU Academy
 
-Responsive multi-page landing website for an online education service. The project focuses on static-site structure, layout, navigation, content pages, and a GitHub Pages deployment.
+Cinematic multi-page landing site for a premium finance education product. The redesign turns the original static brochure into a product-style website with generated hero imagery, scroll-reveal motion, interactive track selection, pricing toggles, a validated lead form, and Playwright coverage.
 
-## Live demo
+## Live Demo
 
 [Open the website](https://alinayevstropova.github.io/Education/)
 
-## Features
+## What Changed
 
-- Multi-page website structure
-- Responsive navigation
-- Landing page, about page, pricing page, blog, and contact flow
-- Static privacy, cookie, disclaimer, and terms pages
-- GitHub Pages deployment
+- Repositioned the brand from a generic finance course site into `StackU Academy`
+- Added four generated cinematic image assets under `images/cinematic-*.png`
+- Rebuilt the homepage as a premium product journey: hero, proof band, story chapters, curriculum, track lab, pricing, testimonials, FAQ, and application CTA
+- Redesigned About, Pricing, Insights, and Contact pages to match the new visual system
+- Added accessible mobile navigation, reduced-motion handling, form validation, and local success feedback
+- Added Playwright tests for core product flows and responsive behavior
 
-## Tech stack
+## Tech Stack
 
 - HTML
 - CSS
 - JavaScript
-- Swiper
+- Playwright
 - GitHub Pages
 
-## Portfolio note
+## Local Workflow
 
-This project is included as a layout and static-site example. The stronger engineering projects in this profile are the React Native route tracker, Electron desktop utility, and Website Inspector extension.
+```bash
+npm install
+npm run dev
+npm test
+```
 
-## Next improvements
+The dev server runs at `http://127.0.0.1:4173`.
 
-- Add accessibility pass for form labels and landmarks
-- Improve content for an Ireland-based audience
-- Add Lighthouse performance notes
-- Add screenshots to this README
+## Test Coverage
+
+The Playwright suite checks:
+
+- Homepage product story and generated hero asset
+- Horizontal overflow on desktop and mobile
+- Interactive learning track switcher
+- Pricing billing mode toggle
+- Lead form validation and success state
+- Mobile navigation open and close behavior
+
+## Portfolio Note
+
+This project now demonstrates visual design judgment, static-site architecture, responsive UI implementation, and automated browser testing. It is still a static GitHub Pages project, so no backend data is submitted from the forms.
