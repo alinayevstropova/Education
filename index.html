@@ -88,7 +88,7 @@
             </p>
             <div class="hero-actions">
               <a class="primary-btn" href="./contact.html">Book a strategy call</a>
-              <a class="ghost-btn" href="#experience">Watch the journey</a>
+              <a class="ghost-btn" href="#scroll-film">Watch the journey</a>
             </div>
           </div>
 
@@ -130,6 +130,73 @@
           <div data-reveal>
             <span>Outcome</span>
             <strong>clearer decisions, cleaner budgets, sharper strategy</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="scroll-film" id="scroll-film" data-scroll-film>
+        <div class="scroll-film-stage">
+          <article
+            class="film-frame is-active"
+            data-film-frame
+            data-accent="#d7b46a"
+            data-title="The room goes quiet."
+            data-kicker="Opening scene"
+            data-copy="You enter a private finance studio where market noise becomes a story you can finally read."
+          >
+            <img src="./images/cinematic-hero.png" alt="Private finance lecture room" />
+          </article>
+          <article
+            class="film-frame"
+            data-film-frame
+            data-accent="#52c7bd"
+            data-title="Numbers start moving."
+            data-kicker="Dashboard scene"
+            data-copy="Budgets, runway, risk, and goals turn into a living dashboard instead of static advice."
+          >
+            <img src="./images/cinematic-dashboard.png" alt="Premium dashboard on a laptop" />
+          </article>
+          <article
+            class="film-frame"
+            data-film-frame
+            data-accent="#68a878"
+            data-title="The strategy becomes shared."
+            data-kicker="Workshop scene"
+            data-copy="Learners compare decisions, challenge assumptions, and build a financial operating rhythm."
+          >
+            <img src="./images/cinematic-workshop.png" alt="Premium finance workshop" />
+          </article>
+          <article
+            class="film-frame"
+            data-film-frame
+            data-accent="#7b364b"
+            data-title="You defend the plan."
+            data-kicker="Final scene"
+            data-copy="The course ends with a plan that can survive questions, pressure, and real-world trade-offs."
+          >
+            <img src="./images/cinematic-boardroom.png" alt="Boardroom plan presentation" />
+          </article>
+
+          <div class="film-overlay" aria-live="polite">
+            <p class="eyebrow" data-film-kicker>Opening scene</p>
+            <h2 data-film-title>The room goes quiet.</h2>
+            <p data-film-copy>
+              You enter a private finance studio where market noise becomes a
+              story you can finally read.
+            </p>
+          </div>
+
+          <div class="film-hud" aria-hidden="true">
+            <span data-film-counter>01</span>
+            <div class="film-line"><span data-film-progress></span></div>
+            <span>04</span>
+          </div>
+
+          <div class="film-strip" aria-hidden="true">
+            <span class="is-active" data-film-dot></span>
+            <span data-film-dot></span>
+            <span data-film-dot></span>
+            <span data-film-dot></span>
           </div>
         </div>
       </section>
@@ -245,6 +312,50 @@
               </p>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section class="shot-slider" id="shot-slider">
+        <div class="container split-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Director's cut</p>
+            <h2>Slide through the course like a premium case film.</h2>
+          </div>
+          <p>
+            A second motion layer turns the curriculum into a controlled reel:
+            click through scenes, compare the mood, and feel the program pacing.
+          </p>
+        </div>
+        <div class="container shot-slider-shell" data-shot-slider data-reveal>
+          <div class="shot-stage">
+            <div class="shot-track" data-shot-track>
+              <article class="shot-card is-active">
+                <img src="./images/cinematic-hero.png" alt="Finance lecture opening shot" />
+                <span>Opening shot</span>
+                <h3>Context before calculation</h3>
+              </article>
+              <article class="shot-card">
+                <img src="./images/cinematic-dashboard.png" alt="Learning dashboard close-up" />
+                <span>Dashboard shot</span>
+                <h3>Numbers become visible</h3>
+              </article>
+              <article class="shot-card">
+                <img src="./images/cinematic-workshop.png" alt="Workshop collaboration shot" />
+                <span>Workshop shot</span>
+                <h3>Strategy becomes shared</h3>
+              </article>
+              <article class="shot-card">
+                <img src="./images/cinematic-boardroom.png" alt="Boardroom final presentation shot" />
+                <span>Final shot</span>
+                <h3>Decisions become defensible</h3>
+              </article>
+            </div>
+          </div>
+          <div class="shot-controls" aria-label="Course scene slider">
+            <button class="ghost-btn" type="button" data-shot-prev>Previous</button>
+            <p><span data-shot-index>01</span> / 04</p>
+            <button class="primary-btn" type="button" data-shot-next>Next scene</button>
+          </div>
         </div>
       </section>
 

@@ -196,9 +196,114 @@ function initCinemaReel() {
   window.addEventListener("resize", updateReel);
 }
 
+function initScrollFilm() {
+  const film = document.querySelector("[data-scroll-film]");
+  if (!film) return;
+
+  const stage = film.querySelector(".scroll-film-stage");
+  const frames = Array.from(film.querySelectorAll("[data-film-frame]"));
+  const dots = Array.from(film.querySelectorAll("[data-film-dot]"));
+  const kicker = film.querySelector("[data-film-kicker]");
+  const title = film.querySelector("[data-film-title]");
+  const copy = film.querySelector("[data-film-copy]");
+  const counter = film.querySelector("[data-film-counter]");
+
+  function clamp(value, min = 0, max = 1) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  function setActive(index, localPresence = 1) {
+    const activeFrame = frames[index];
+    if (!activeFrame) return;
+
+    frames.forEach((frame, frameIndex) => {
+      frame.classList.toggle("is-active", frameIndex === index);
+    });
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-active", dotIndex === index);
+    });
+
+    stage.style.setProperty("--film-accent", activeFrame.dataset.accent || "#d7b46a");
+    stage.style.setProperty("--film-text-presence", localPresence.toFixed(3));
+    if (kicker) kicker.textContent = activeFrame.dataset.kicker;
+    if (title) title.textContent = activeFrame.dataset.title;
+    if (copy) copy.textContent = activeFrame.dataset.copy;
+    if (counter) counter.textContent = String(index + 1).padStart(2, "0");
+  }
+
+  function updateFilm() {
+    const rect = film.getBoundingClientRect();
+    const scrollable = Math.max(film.offsetHeight - window.innerHeight, 1);
+    const progress = clamp(-rect.top / scrollable);
+    const sceneFloat = progress * (frames.length - 1);
+    const activeIndex = Math.min(frames.length - 1, Math.round(sceneFloat));
+    const localDistance = Math.abs(sceneFloat - activeIndex);
+    const textPresence = clamp(1 - localDistance * 1.85, 0.18, 1);
+
+    stage.style.setProperty("--film-progress", progress.toFixed(4));
+    setActive(activeIndex, textPresence);
+
+    frames.forEach((frame, index) => {
+      const distance = index - sceneFloat;
+      const presence = clamp(1 - Math.abs(distance));
+      const direction = distance >= 0 ? 1 : -1;
+      const translateX = distance * 12;
+      const translateY = Math.abs(distance) * 5;
+      const scale = 1.04 + Math.abs(distance) * 0.1;
+      const blur = Math.abs(distance) * 7;
+      const brightness = 0.52 + presence * 0.42;
+      const clipInset = Math.abs(distance) * 9;
+
+      frame.style.opacity = presence.toFixed(3);
+      frame.style.transform = `translate3d(${translateX}vw, ${translateY}vh, 0) scale(${scale}) rotateY(${direction * Math.abs(distance) * -5}deg)`;
+      frame.style.filter = `blur(${blur}px) brightness(${brightness})`;
+      frame.style.clipPath = `inset(${clipInset}% ${clipInset * 0.6}% round 0px)`;
+      frame.style.zIndex = String(4 - Math.round(Math.abs(distance) * 3));
+    });
+  }
+
+  setActive(0);
+  updateFilm();
+  window.addEventListener("scroll", updateFilm, { passive: true });
+  window.addEventListener("resize", updateFilm);
+}
+
+function initShotSlider() {
+  const slider = document.querySelector("[data-shot-slider]");
+  if (!slider) return;
+
+  const cards = Array.from(slider.querySelectorAll(".shot-card"));
+  const previous = slider.querySelector("[data-shot-prev]");
+  const next = slider.querySelector("[data-shot-next]");
+  const indexLabel = slider.querySelector("[data-shot-index]");
+  let activeIndex = 0;
+
+  function setSlide(index) {
+    activeIndex = (index + cards.length) % cards.length;
+    slider.style.setProperty("--shot-index", activeIndex);
+    cards.forEach((card, cardIndex) => {
+      card.classList.toggle("is-active", cardIndex === activeIndex);
+    });
+    if (indexLabel) {
+      indexLabel.textContent = String(activeIndex + 1).padStart(2, "0");
+    }
+  }
+
+  previous?.addEventListener("click", () => setSlide(activeIndex - 1));
+  next?.addEventListener("click", () => setSlide(activeIndex + 1));
+
+  cards.forEach((card, index) => {
+    card.addEventListener("click", () => setSlide(index));
+  });
+
+  setSlide(0);
+}
+
 initReveal();
 initTrackSwitcher();
 initPricingToggle();
 initLeadForm();
 initParallax();
+initScrollFilm();
 initCinemaReel();
+initShotSlider();

@@ -19,6 +19,7 @@ test.describe("StackU cinematic site", () => {
     await expect(page).toHaveTitle(/StackU Academy/);
     await expect(page.getByRole("heading", { name: /Learn money like the room depends on it/i })).toBeVisible();
     await expect(page.locator(".hero-bg")).toHaveAttribute("src", /cinematic-hero\.png/);
+    await expect(page.getByRole("heading", { name: "The room goes quiet." })).toBeVisible();
     await expect(page.getByRole("heading", { name: /One vertical scroll/i })).toBeVisible();
     await expect(page.getByRole("heading", { name: /Built around decisions/i })).toBeVisible();
     await expect(page.getByRole("heading", { name: /Apply for the next cohort/i })).toBeVisible();
@@ -36,6 +37,35 @@ test.describe("StackU cinematic site", () => {
     await page.getByRole("button", { name: "Team" }).click();
     await expect(page.getByText("Give everyone the same financial language.")).toBeVisible();
     await expect(page.getByText("Company-specific case simulations")).toBeVisible();
+  });
+
+  test("director shot slider moves between course scenes", async ({ page }) => {
+    await page.goto("/");
+
+    await page.locator("[data-shot-slider]").scrollIntoViewIfNeeded();
+    await expect(page.locator("[data-shot-index]")).toHaveText("01");
+    await page.getByRole("button", { name: "Next scene" }).click();
+    await expect(page.locator("[data-shot-index]")).toHaveText("02");
+    await expect(page.getByRole("heading", { name: "Numbers become visible" })).toBeVisible();
+    await page.getByRole("button", { name: "Previous" }).click();
+    await expect(page.locator("[data-shot-index]")).toHaveText("01");
+  });
+
+  test("full-screen scroll film changes scenes with scroll progress", async ({ page }) => {
+    await page.goto("/");
+
+    await page.evaluate(() => {
+      const film = document.querySelector("[data-scroll-film]");
+      window.scrollTo(0, film.offsetTop);
+    });
+    await expect(page.getByRole("heading", { name: "The room goes quiet." })).toBeVisible();
+
+    await page.evaluate(() => {
+      const film = document.querySelector("[data-scroll-film]");
+      window.scrollTo(0, film.offsetTop + film.offsetHeight * 0.74);
+    });
+    await expect(page.getByRole("heading", { name: "You defend the plan." })).toBeVisible();
+    await expect(page.locator("[data-film-counter]")).toHaveText("04");
   });
 
   test("scroll-driven film reel advances through scenes", async ({ page }) => {
