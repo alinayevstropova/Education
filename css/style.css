@@ -365,6 +365,161 @@
   line-height: 1.35;
 }
 
+/* Full-screen scroll film */
+.scroll-film {
+  height: 520vh;
+  background: #050605;
+}
+
+.scroll-film-stage {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #050605;
+  --film-accent: var(--gold);
+  --film-progress: 0;
+}
+
+.scroll-film-stage::before,
+.scroll-film-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.scroll-film-stage::before {
+  background:
+    radial-gradient(circle at calc(18% + var(--film-progress) * 64%) 42%, color-mix(in srgb, var(--film-accent) 36%, transparent), transparent 22%),
+    linear-gradient(90deg, rgba(5, 6, 5, 0.9), rgba(5, 6, 5, 0.18) 54%, rgba(5, 6, 5, 0.82)),
+    linear-gradient(180deg, rgba(5, 6, 5, 0.84), transparent 34%, rgba(5, 6, 5, 0.92));
+  mix-blend-mode: screen;
+  opacity: 0.82;
+}
+
+.scroll-film-stage::after {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 5px);
+  background-size: 110px 110px, 110px 110px, 100% 6px;
+  opacity: 0.22;
+  mix-blend-mode: overlay;
+}
+
+.film-frame {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.16) translate3d(0, 0, 0);
+  transition:
+    opacity 140ms linear,
+    filter 220ms linear;
+  will-change: opacity, transform, clip-path;
+}
+
+.film-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.08) brightness(0.68);
+}
+
+.film-frame.is-active img {
+  filter: saturate(1.04) contrast(1.08) brightness(0.78);
+}
+
+.film-overlay {
+  position: absolute;
+  left: max(28px, calc((100vw - 1180px) / 2));
+  bottom: 14vh;
+  z-index: 8;
+  display: grid;
+  gap: 18px;
+  width: min(650px, calc(100vw - 56px));
+  transform: translateY(calc((1 - var(--film-text-presence, 1)) * 34px));
+  opacity: var(--film-text-presence, 1);
+  transition:
+    opacity 180ms linear,
+    transform 180ms linear;
+}
+
+.film-overlay h2 {
+  max-width: 760px;
+  font-size: clamp(48px, 8vw, 118px);
+  line-height: 0.92;
+  text-shadow: 0 22px 70px rgba(0, 0, 0, 0.7);
+}
+
+.film-overlay p:last-child {
+  max-width: 560px;
+  color: #eee5d6;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.film-hud {
+  position: absolute;
+  right: max(28px, calc((100vw - 1180px) / 2));
+  bottom: 11vh;
+  z-index: 8;
+  display: grid;
+  grid-template-columns: auto 150px auto;
+  gap: 14px;
+  align-items: center;
+  color: var(--ivory);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.film-hud span {
+  color: var(--film-accent);
+}
+
+.film-line {
+  height: 2px;
+  overflow: hidden;
+  background: rgba(246, 240, 229, 0.24);
+}
+
+.film-line span {
+  display: block;
+  width: calc(var(--film-progress) * 100%);
+  height: 100%;
+  background: var(--film-accent);
+  box-shadow: 0 0 30px var(--film-accent);
+}
+
+.film-strip {
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  z-index: 8;
+  display: grid;
+  gap: 12px;
+  transform: translateY(-50%);
+}
+
+.film-strip span {
+  display: block;
+  width: 8px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(246, 240, 229, 0.2);
+  transition:
+    height 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.film-strip span.is-active {
+  height: 74px;
+  background: var(--film-accent);
+  box-shadow: 0 0 28px var(--film-accent);
+}
+
 /* Scroll-driven reel */
 .cinema-reel {
   min-height: 420vh;
@@ -1335,6 +1490,43 @@
     grid-template-columns: 1fr;
   }
 
+  .scroll-film {
+    height: auto;
+  }
+
+  .scroll-film-stage {
+    position: relative;
+    display: grid;
+    min-height: auto;
+    padding: 86px 0;
+  }
+
+  .film-frame {
+    position: relative;
+    min-height: 72vh;
+  }
+
+  .film-frame:not(.is-active) {
+    display: none;
+  }
+
+  .film-overlay {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: min(100% - 32px, 720px);
+    margin: -220px auto 80px;
+  }
+
+  .film-hud {
+    right: 16px;
+    bottom: 28px;
+  }
+
+  .film-strip {
+    right: 16px;
+  }
+
   .proof-grid,
   .module-grid,
   .pricing-grid,
@@ -1420,6 +1612,24 @@
 
   .hero-bg {
     object-position: 62% center;
+  }
+
+  .film-overlay h2 {
+    font-size: 46px;
+  }
+
+  .film-overlay p:last-child {
+    font-size: 16px;
+  }
+
+  .film-hud {
+    left: 16px;
+    right: 16px;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .film-strip {
+    display: none;
   }
 
   .hero-actions {
