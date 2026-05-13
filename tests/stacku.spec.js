@@ -38,6 +38,18 @@ test.describe("StackU cinematic site", () => {
     await expect(page.getByText("Company-specific case simulations")).toBeVisible();
   });
 
+  test("director shot slider moves between course scenes", async ({ page }) => {
+    await page.goto("/");
+
+    await page.locator("[data-shot-slider]").scrollIntoViewIfNeeded();
+    await expect(page.locator("[data-shot-index]")).toHaveText("01");
+    await page.getByRole("button", { name: "Next scene" }).click();
+    await expect(page.locator("[data-shot-index]")).toHaveText("02");
+    await expect(page.getByRole("heading", { name: "Numbers become visible" })).toBeVisible();
+    await page.getByRole("button", { name: "Previous" }).click();
+    await expect(page.locator("[data-shot-index]")).toHaveText("01");
+  });
+
   test("scroll-driven film reel advances through scenes", async ({ page }) => {
     await page.goto("/");
 

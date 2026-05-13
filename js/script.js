@@ -196,9 +196,41 @@ function initCinemaReel() {
   window.addEventListener("resize", updateReel);
 }
 
+function initShotSlider() {
+  const slider = document.querySelector("[data-shot-slider]");
+  if (!slider) return;
+
+  const cards = Array.from(slider.querySelectorAll(".shot-card"));
+  const previous = slider.querySelector("[data-shot-prev]");
+  const next = slider.querySelector("[data-shot-next]");
+  const indexLabel = slider.querySelector("[data-shot-index]");
+  let activeIndex = 0;
+
+  function setSlide(index) {
+    activeIndex = (index + cards.length) % cards.length;
+    slider.style.setProperty("--shot-index", activeIndex);
+    cards.forEach((card, cardIndex) => {
+      card.classList.toggle("is-active", cardIndex === activeIndex);
+    });
+    if (indexLabel) {
+      indexLabel.textContent = String(activeIndex + 1).padStart(2, "0");
+    }
+  }
+
+  previous?.addEventListener("click", () => setSlide(activeIndex - 1));
+  next?.addEventListener("click", () => setSlide(activeIndex + 1));
+
+  cards.forEach((card, index) => {
+    card.addEventListener("click", () => setSlide(index));
+  });
+
+  setSlide(0);
+}
+
 initReveal();
 initTrackSwitcher();
 initPricingToggle();
 initLeadForm();
 initParallax();
 initCinemaReel();
+initShotSlider();
