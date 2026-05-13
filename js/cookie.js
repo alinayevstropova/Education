@@ -2,7 +2,7 @@ const cookiePopup = document.getElementById("cookiePopup");
 const acceptCookies = document.getElementById("acceptCookies");
 
 setTimeout(() => {
-  if (!localStorage.getItem("cookiesAccepted")) {
+  if (cookiePopup && !localStorage.getItem("cookiesAccepted")) {
     cookiePopup.style.display = "block";
   }
 }, 5000);

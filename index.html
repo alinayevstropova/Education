@@ -5,589 +5,476 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="keywords"
-      content="financial courses, Canada, financial planning, financial management, investment strategies, financial education, StackU"
+      content="StackU Academy, finance education, investment courses, financial literacy, online finance academy, Ireland finance courses"
     />
     <meta
       name="description"
-      content="StackU is a financial education company in Canada specializing in financial courses, planning, management, and investment strategies. We provide personalized solutions to help you achieve your financial goals."
+      content="StackU Academy is a cinematic finance education platform for ambitious learners, founders, and teams who want to understand money, markets, and strategy with confidence."
     />
-    <title>StackU</title>
+    <title>StackU Academy | Cinematic Finance Education</title>
     <link rel="icon" href="images/logo.png" type="image/png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-
     <link rel="stylesheet" href="./css/basic.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./js/header-menu.js"></script>
+    <script defer src="./js/cookie.js"></script>
+    <script defer src="./js/script.js"></script>
   </head>
-  <body>
-    <header class="header">
-      <a class="logo" href="./index.html">
-        <img src="./images/logo.png" alt="StackU" />
+  <body data-page="home">
+    <div class="site-noise" aria-hidden="true"></div>
+    <header class="header" data-header>
+      <a class="logo" href="./index.html" aria-label="StackU Academy home">
+        <span class="logo-mark">S</span>
+        <span class="logo-copy">
+          <strong>StackU</strong>
+          <span>Academy</span>
+        </span>
       </a>
-      <nav class="header-nav">
+      <nav class="header-nav" aria-label="Primary navigation">
         <ul class="header-nav-list">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./about.html">About</a></li>
+          <li><a href="./index.html#experience">Experience</a></li>
+          <li><a href="./index.html#curriculum">Curriculum</a></li>
+          <li><a href="./index.html#studio">Studio</a></li>
           <li><a href="./price.html">Pricing</a></li>
-          <li><a href="./blog.html">Blog</a></li>
+          <li><a href="./blog.html">Insights</a></li>
         </ul>
       </nav>
-      <a class="secondary-btn" href="./contact.html">Contact</a>
-      <button class="burger-btn burgerBtn">
-        <svg>
-          <use href="./images/sprite.svg#burger"></use>
-        </svg>
+      <a class="secondary-btn" href="./contact.html">Apply</a>
+      <button
+        class="icon-btn burgerBtn"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
       </button>
     </header>
 
+    <div class="mobile-menu mobileMenu" aria-hidden="true">
+      <button class="icon-btn closeBtn" type="button" aria-label="Close navigation">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="mobile-nav" aria-label="Mobile navigation">
+        <a class="mobile-nav-link" href="./index.html#experience">Experience</a>
+        <a class="mobile-nav-link" href="./index.html#curriculum">Curriculum</a>
+        <a class="mobile-nav-link" href="./index.html#studio">Studio</a>
+        <a class="mobile-nav-link" href="./price.html">Pricing</a>
+        <a class="mobile-nav-link" href="./blog.html">Insights</a>
+        <a class="primary-btn mobile-nav-link" href="./contact.html">Apply now</a>
+      </nav>
+    </div>
+
     <main>
-      <section class="hero">
-        <div class="hero-container container-flex">
-          <div class="hero-content">
-            <h1 class="hero-title">Financial Courses in Canada</h1>
-            <p class="descr">
-              We help you learn, plan, and optimize your financial knowledge in
-              Canada. Our team of experts provides professional guidance and
-              tailored solutions to meet your financial education needs. We
-              offer in-depth expertise to ensure the success of your financial
-              goals.
+      <section class="hero cinematic-frame" id="top">
+        <img
+          class="hero-bg"
+          src="./images/cinematic-hero.png"
+          alt="Premium finance academy lecture studio at night"
+        />
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-content" data-reveal>
+            <p class="eyebrow">Finance education with film-level presence</p>
+            <h1>Learn money like the room depends on it.</h1>
+            <p class="hero-lede">
+              StackU Academy turns financial literacy, market thinking, and
+              investment strategy into an immersive learning experience for
+              ambitious professionals in Ireland and across Europe.
             </p>
-            <a href="./index.html#contact" class="primary-btn"
-              >Get Started Now</a
-            >
-          </div>
-          <div class="wrapper">
-            <img
-              src="./images/financial-education-canada.jpg"
-              alt="Financial Education in Canada"
-              class="wrapper-img"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="our-services" id="our-services">
-        <div class="container">
-          <div class="our-services-content">
-            <p class="section-name">Our Services</p>
-            <h2 class="title">Concept and Guidance</h2>
-            <p class="descr">
-              We offer a wide range of services, including financial planning,
-              investment strategies, and financial optimization. Our expertise
-              helps you achieve your financial goals with confidence.
-            </p>
-          </div>
-          <ul class="our-services-list">
-            <li class="our-services-item">
-              <div class="our-services-item-wrap">
-                <img
-                  src="./images/financial-planning.png"
-                  alt="Financial Planning"
-                />
-              </div>
-              <div class="our-services-item-content">
-                <h3 class="subtitle">Financial Planning</h3>
-                <p class="descr">
-                  We create personalized financial plans to help you achieve
-                  your short- and long-term goals.
-                </p>
-              </div>
-            </li>
-            <li class="our-services-item">
-              <div class="our-services-item-wrap">
-                <img
-                  src="./images/investment-strategy.png"
-                  alt="Investment Strategy"
-                />
-              </div>
-              <div class="our-services-item-content">
-                <h3 class="subtitle">Investment Strategy</h3>
-                <p class="descr">
-                  We develop tailored investment strategies to maximize your
-                  returns and minimize risks.
-                </p>
-              </div>
-            </li>
-            <li class="our-services-item">
-              <div class="our-services-item-wrap">
-                <img src="./images/financial-tools.png" alt="Financial Tools" />
-              </div>
-              <div class="our-services-item-content">
-                <h3 class="subtitle">Financial Tools</h3>
-                <p class="descr">
-                  We integrate modern tools to optimize your finances and ensure
-                  their success.
-                </p>
-              </div>
-            </li>
-            <li class="our-services-item">
-              <div class="our-services-item-wrap">
-                <img src="./images/team-training.png" alt="Team Training" />
-              </div>
-              <div class="our-services-item-content">
-                <h3 class="subtitle">Team Training</h3>
-                <p class="descr">
-                  We train your teams to tackle financial challenges and
-                  contribute to the growth of your organization.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="about-us" id="about-us">
-        <div class="container container-flex">
-          <div class="about-us-content">
-            <p class="section-name">About Us</p>
-            <h2 class="title">Who We Are</h2>
-            <p class="descr">
-              StackU is a financial education company based in Canada,
-              specializing in helping individuals and businesses achieve their
-              financial goals. We provide customized solutions to meet your
-              specific needs.
-            </p>
-            <p class="descr">
-              Our mission is to simplify financial education while ensuring
-              exceptional results. We are proud to be a trusted partner for our
-              clients, offering in-depth expertise and high-quality services.
-            </p>
-            <a href="./about.html" class="primary-btn">Learn More</a>
-          </div>
-          <div class="wrapper">
-            <img
-              src="./images/about-stacku.jpg"
-              alt="About StackU"
-              class="wrapper-img"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section class="how-work" id="how-work">
-        <div class="container">
-          <div class="how-work-content">
-            <p class="section-name">How We Work</p>
-            <h2 class="title">Steps of Our Process</h2>
-          </div>
-          <ul class="how-work-list">
-            <li class="how-work-item">
-              <div class="how-work-item-content">
-                <h3 class="subtitle">Analysis and Evaluation</h3>
-                <p class="descr">
-                  We begin with an in-depth analysis of your financial situation
-                  to understand your goals and challenges. Our experts identify
-                  opportunities and solutions tailored to your specific needs.
-                </p>
-              </div>
-              <div class="how-work-item-wrap-center"></div>
-              <div class="how-work-item-wrap-right">1</div>
-            </li>
-            <li class="how-work-item">
-              <div class="how-work-item-content">
-                <h3 class="subtitle">Strategy Development</h3>
-                <p class="descr">
-                  Based on the collected data, we develop a personalized
-                  financial strategy. We propose innovative solutions to
-                  optimize your finances and achieve your goals.
-                </p>
-              </div>
-              <div class="how-work-item-wrap-center"></div>
-              <div class="how-work-item-wrap-right">2</div>
-            </li>
-            <li class="how-work-item">
-              <div class="how-work-item-content">
-                <h3 class="subtitle">Implementation and Monitoring</h3>
-                <p class="descr">
-                  We assist you in implementing the developed strategies,
-                  ensuring regular monitoring. Our experts collaborate with you
-                  to guarantee optimal and sustainable results.
-                </p>
-              </div>
-              <div class="how-work-item-wrap-center"></div>
-              <div class="how-work-item-wrap-right">3</div>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="testimonial" id="testimonial">
-        <div class="container">
-          <div class="testimonial-content">
-            <p class="section-name">Testimonials</p>
-            <h2 class="title">What Our Clients Say</h2>
-            <p class="descr">
-              We are proud of the trust our clients place in us and their
-              satisfaction. Here’s what they say about their experience with
-              StackU.
-            </p>
-          </div>
-          <div class="swiper swiperTestimonial">
-            <ul class="swiper-wrapper">
-              <li class="testimonial-item swiper-slide">
-                <img
-                  src="./images/financial-feedback-canada.jpg"
-                  alt="Client Feedback"
-                />
-                <div class="testimonial-item-content">
-                  <div class="testimonial-item-wrap">
-                    <svg>
-                      <use href="./images/sprite.svg#quote"></use>
-                    </svg>
-                  </div>
-                  <p class="descr">
-                    "Thanks to StackU, I was able to structure my finances and
-                    achieve my investment goals. Their expertise is unmatched."
-                  </p>
-                  <h3 class="subtitle">Lucas Weber</h3>
-                  <p class="descr">Investor</p>
-                </div>
-              </li>
-              <li class="testimonial-item swiper-slide">
-                <img
-                  src="./images/financial-client-feedback-canada.jpg"
-                  alt="Client Feedback"
-                />
-                <div class="testimonial-item-content">
-                  <div class="testimonial-item-wrap">
-                    <svg>
-                      <use href="./images/sprite.svg#quote"></use>
-                    </svg>
-                  </div>
-                  <p class="descr">
-                    "Working with StackU has been an enriching experience. They
-                    provided tailored solutions that transformed my financial
-                    management."
-                  </p>
-                  <h3 class="subtitle">Marie Claire</h3>
-                  <p class="descr">Entrepreneur</p>
-                </div>
-              </li>
-              <li class="testimonial-item swiper-slide">
-                <img
-                  src="./images/client-feedback-financial-canada.jpg"
-                  alt="Client Feedback"
-                />
-                <div class="testimonial-item-content">
-                  <div class="testimonial-item-wrap">
-                    <svg>
-                      <use href="./images/sprite.svg#quote"></use>
-                    </svg>
-                  </div>
-                  <p class="descr">
-                    "StackU helped me develop a financial strategy that
-                    significantly improved my economic stability. Their
-                    professionalism is remarkable."
-                  </p>
-                  <h3 class="subtitle">John Smith</h3>
-                  <p class="descr">Individual</p>
-                </div>
-              </li>
-            </ul>
-            <div class="swiper-pagination swiper-pagination-testimonial"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="our-blog" id="our-blog">
-        <div class="container">
-          <div class="our-blog-content">
-            <p class="section-name">Our Blog</p>
-            <h2 class="title">Tips and Insights</h2>
-            <p class="descr">
-              Discover financial strategies, practical tips, and in-depth
-              analyses. We share useful articles to help you achieve your
-              financial goals in Canada.
-            </p>
-          </div>
-          <div class="swiper swiperBlog">
-            <ul class="swiper-wrapper">
-              <li class="our-blog-item swiper-slide">
-                <img
-                  src="./images/financial-growth-strategies.jpg"
-                  alt="Financial Growth Strategies"
-                  class="our-blog-item-img"
-                />
-                <p class="our-blog-item-info">
-                  Author: StackU Team | Category: Strategies | May 6, 2025
-                </p>
-                <h3 class="subtitle">Financial Growth Strategies</h3>
-                <p class="descr">
-                  Discover key strategies to maximize the growth of your
-                  financial investments in a competitive environment.
-                </p>
-                <a href="./index.html#contact" class="link"
-                  >Read More
-                  <svg>
-                    <use href="./images/sprite.svg#line-arrow"></use>
-                  </svg>
-                </a>
-              </li>
-              <li class="our-blog-item swiper-slide">
-                <img
-                  src="./images/market-analysis-tools.jpg"
-                  alt="Market Analysis Tools"
-                  class="our-blog-item-img"
-                />
-                <p class="our-blog-item-info">
-                  Author: StackU Team | Category: Analysis | April 28, 2025
-                </p>
-                <h3 class="subtitle">Market Analysis Tools</h3>
-                <p class="descr">
-                  Learn how to use modern tools to analyze financial markets and
-                  identify new opportunities.
-                </p>
-                <a href="./index.html#contact" class="link"
-                  >Read More
-                  <svg>
-                    <use href="./images/sprite.svg#line-arrow"></use>
-                  </svg>
-                </a>
-              </li>
-              <li class="our-blog-item swiper-slide">
-                <img
-                  src="./images/team-development-strategies.jpg"
-                  alt="Team Development Strategies"
-                  class="our-blog-item-img"
-                />
-                <p class="our-blog-item-info">
-                  Author: StackU Team | Category: Team | April 15, 2025
-                </p>
-                <h3 class="subtitle">Team Development Strategies</h3>
-                <p class="descr">
-                  Discover how to develop your team's skills to improve
-                  efficiency and productivity in your financial projects.
-                </p>
-                <a href="./index.html#contact" class="link"
-                  >Read More
-                  <svg>
-                    <use href="./images/sprite.svg#line-arrow"></use>
-                  </svg>
-                </a>
-              </li>
-              <li class="our-blog-item swiper-slide">
-                <img
-                  src="./images/sustainable-finance.jpg"
-                  alt="Sustainable Finance"
-                  class="our-blog-item-img"
-                />
-                <p class="our-blog-item-info">
-                  Author: StackU Team | Category: Sustainability | April 5, 2025
-                </p>
-                <h3 class="subtitle">Sustainable Finance</h3>
-                <p class="descr">
-                  Learn how to integrate sustainable practices into your
-                  financial projects for a better future.
-                </p>
-                <a href="./index.html#contact" class="link"
-                  >Read More
-                  <svg>
-                    <use href="./images/sprite.svg#line-arrow"></use>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-            <div class="swiper-pagination swiper-pagination-blog"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact" id="contact">
-        <div class="container">
-          <div class="contact-content">
-            <h2 class="title">Start Your Project with StackU!</h2>
-            <p class="descr">
-              We offer professional guidance and tailored solutions for your
-              financial projects. Contact us to discover how we can help you
-              achieve your financial goals in Canada.
-            </p>
-            <div class="contact-content-wrap">
-              <h3 class="subtitle">Contact Information</h3>
-              <ul class="contact-list">
-                <li class="contact-list-item">
-                  <svg>
-                    <use href="./images/sprite.svg#location"></use>
-                  </svg>
-                  <p class="descr">
-                    1801 Gerrard St E, Toronto, ON M4L 2B4, Canada
-                  </p>
-                </li>
-                <li class="contact-list-item">
-                  <svg>
-                    <use href="./images/sprite.svg#phone"></use>
-                  </svg>
-                  <p class="descr">+1 416 546 6261</p>
-                </li>
-                <li class="contact-list-item">
-                  <svg>
-                    <use href="./images/sprite.svg#email"></use>
-                  </svg>
-                  <p class="descr">
-                    <a href="mailto:info@stacku.ca">info@stacku.ca</a>
-                  </p>
-                </li>
-              </ul>
+            <div class="hero-actions">
+              <a class="primary-btn" href="./contact.html">Book a strategy call</a>
+              <a class="ghost-btn" href="#experience">Watch the journey</a>
             </div>
-            <div class="contact-content-wrap">
-              <h3 class="subtitle">Hours</h3>
-              <p class="descr">
-                <svg>
-                  <use href="./images/sprite.svg#clock"></use>
-                </svg>
-                Mon-Fri: 9:00 AM - 6:00 PM
+          </div>
+
+          <aside class="hero-panel glass-panel" data-reveal>
+            <p class="panel-kicker">Next cohort</p>
+            <strong>8-week cinematic finance sprint</strong>
+            <span>Live workshops, dashboards, case simulations, and personal action plans.</span>
+            <dl class="hero-metrics">
+              <div>
+                <dt>42</dt>
+                <dd>guided lessons</dd>
+              </div>
+              <div>
+                <dt>12</dt>
+                <dd>market labs</dd>
+              </div>
+              <div>
+                <dt>1:1</dt>
+                <dd>mentor review</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+        <a class="scroll-cue" href="#experience" aria-label="Scroll to experience">
+          <span></span>
+        </a>
+      </section>
+
+      <section class="proof-band" aria-label="Program proof points">
+        <div class="container proof-grid">
+          <div data-reveal>
+            <span>Designed for</span>
+            <strong>career switchers, founders, analysts, and teams</strong>
+          </div>
+          <div data-reveal>
+            <span>Learning mode</span>
+            <strong>live cohort plus cinematic self-paced chapters</strong>
+          </div>
+          <div data-reveal>
+            <span>Outcome</span>
+            <strong>clearer decisions, cleaner budgets, sharper strategy</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience" id="experience">
+        <div class="container section-heading" data-reveal>
+          <p class="eyebrow">A product experience, not a PDF course</p>
+          <h2>Every scroll moves like a scene.</h2>
+          <p>
+            The program is structured like a film: tension, context, decisions,
+            consequences, and a final plan you can defend in a real room.
+          </p>
+        </div>
+
+        <div class="container chapter-stack">
+          <article class="chapter-card" data-reveal>
+            <div class="chapter-media">
+              <img src="./images/cinematic-workshop.png" alt="Learners working in a premium finance workshop" />
+            </div>
+            <div class="chapter-copy">
+              <span>Scene 01</span>
+              <h3>Understand the game before you play it.</h3>
+              <p>
+                You learn the language of budgets, assets, debt, risk, and
+                compounding through guided scenarios instead of abstract theory.
               </p>
             </div>
+          </article>
+
+          <article class="chapter-card chapter-card-reverse" data-reveal>
+            <div class="chapter-media">
+              <img src="./images/cinematic-dashboard.png" alt="Dark premium online learning dashboard" />
+            </div>
+            <div class="chapter-copy">
+              <span>Scene 02</span>
+              <h3>Run decisions through a dashboard.</h3>
+              <p>
+                Interactive labs show how choices change cash flow, portfolio
+                exposure, emergency runway, and long-term outcomes.
+              </p>
+            </div>
+          </article>
+
+          <article class="chapter-card" data-reveal>
+            <div class="chapter-media">
+              <img src="./images/cinematic-boardroom.png" alt="Graduate presenting a financial plan" />
+            </div>
+            <div class="chapter-copy">
+              <span>Scene 03</span>
+              <h3>Walk out with a plan you can explain.</h3>
+              <p>
+                The final deliverable is a personal or team financial operating
+                system: priorities, guardrails, metrics, and next actions.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="curriculum" id="curriculum">
+        <div class="container split-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Curriculum</p>
+            <h2>Built around decisions, not lectures.</h2>
           </div>
-          <form
-            class="contact-form"
-            onsubmit="window.location.href = './thank-you.html';return false"
-          >
-            <div class="form-group">
-              <label for="first-name">First Name</label>
-              <input
-                type="text"
-                id="first-name"
-                name="first-name"
-                required
-                pattern="[A-Za-z\s]{2,}"
-                title="The first name must contain at least 2 letters"
-              />
+          <p>
+            Each module mixes story, strategy, numbers, and practice. It feels
+            premium, but it stays practical.
+          </p>
+        </div>
+
+        <div class="container module-grid">
+          <article class="module-card" data-reveal>
+            <span>01</span>
+            <h3>Money OS</h3>
+            <p>Build a clean view of cash flow, goals, debt, runway, and habits.</p>
+          </article>
+          <article class="module-card" data-reveal>
+            <span>02</span>
+            <h3>Risk Lab</h3>
+            <p>Pressure-test emergencies, volatility, concentration, and trade-offs.</p>
+          </article>
+          <article class="module-card" data-reveal>
+            <span>03</span>
+            <h3>Market Lens</h3>
+            <p>Read macro signals, business models, charts, and narratives calmly.</p>
+          </article>
+          <article class="module-card" data-reveal>
+            <span>04</span>
+            <h3>Portfolio Logic</h3>
+            <p>Learn allocation, diversification, rebalancing, fees, and taxes.</p>
+          </article>
+          <article class="module-card" data-reveal>
+            <span>05</span>
+            <h3>Founder Finance</h3>
+            <p>Plan revenue, margins, reserves, hiring, pricing, and growth options.</p>
+          </article>
+          <article class="module-card" data-reveal>
+            <span>06</span>
+            <h3>Boardroom Defense</h3>
+            <p>Present a clear plan with assumptions, risks, scenarios, and next moves.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="track-lab" id="studio">
+        <div class="container track-grid">
+          <div class="track-copy" data-reveal>
+            <p class="eyebrow">Choose your film track</p>
+            <h2>A learning path that adapts to the role you want next.</h2>
+            <p>
+              Switch the track to see how StackU packages the same premium
+              learning engine for different goals.
+            </p>
+            <div class="segmented-control" aria-label="Learning tracks">
+              <button class="track-btn is-active" type="button" data-track="career">Career</button>
+              <button class="track-btn" type="button" data-track="founder">Founder</button>
+              <button class="track-btn" type="button" data-track="team">Team</button>
             </div>
-            <div class="form-group">
-              <label for="last-name">Last Name</label>
-              <input
-                type="text"
-                id="last-name"
-                name="last-name"
-                required
-                pattern="[A-Za-z\s]{2,}"
-                title="The last name must contain at least 2 letters"
-              />
+          </div>
+
+          <article class="track-card glass-panel" data-track-card data-reveal>
+            <p class="panel-kicker" data-track-kicker>Career accelerator</p>
+            <h3 data-track-title>From unsure to financially fluent.</h3>
+            <p data-track-description>
+              Learn how to read offers, manage income, invest consistently, and
+              talk about money without feeling behind.
+            </p>
+            <ul data-track-list>
+              <li>Personal finance operating system</li>
+              <li>Investment basics without jargon</li>
+              <li>Mentor review of your plan</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="process">
+        <div class="container section-heading" data-reveal>
+          <p class="eyebrow">Production pipeline</p>
+          <h2>How the transformation is staged.</h2>
+        </div>
+        <div class="container process-rail">
+          <article data-reveal>
+            <span>Week 1-2</span>
+            <h3>Diagnose</h3>
+            <p>Map goals, money habits, data gaps, and decision pressure.</p>
+          </article>
+          <article data-reveal>
+            <span>Week 3-5</span>
+            <h3>Simulate</h3>
+            <p>Run market, cash-flow, and risk scenarios with mentor feedback.</p>
+          </article>
+          <article data-reveal>
+            <span>Week 6-7</span>
+            <h3>Build</h3>
+            <p>Create dashboards, guardrails, and a financial decision routine.</p>
+          </article>
+          <article data-reveal>
+            <span>Week 8</span>
+            <h3>Defend</h3>
+            <p>Present the plan, sharpen assumptions, and lock next actions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="pricing-preview" id="pricing">
+        <div class="container split-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Pricing</p>
+            <h2>Premium enough to feel serious. Clear enough to choose fast.</h2>
+          </div>
+          <a class="ghost-btn" href="./price.html">Compare all plans</a>
+        </div>
+        <div class="container pricing-grid">
+          <article class="price-card" data-reveal>
+            <span>Starter</span>
+            <h3>Self-paced cinema</h3>
+            <p class="price">EUR 149</p>
+            <p>For learners who want a guided path and polished resources.</p>
+          </article>
+          <article class="price-card price-card-featured" data-reveal>
+            <span>Cohort</span>
+            <h3>Live finance sprint</h3>
+            <p class="price">EUR 690</p>
+            <p>For professionals who want workshops, feedback, and momentum.</p>
+          </article>
+          <article class="price-card" data-reveal>
+            <span>Teams</span>
+            <h3>Private studio</h3>
+            <p class="price">Custom</p>
+            <p>For companies that need shared financial language and operating habits.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="testimonials">
+        <div class="container section-heading" data-reveal>
+          <p class="eyebrow">Signals</p>
+          <h2>What the experience should make people feel.</h2>
+        </div>
+        <div class="container quote-grid">
+          <blockquote data-reveal>
+            <p>
+              "I finally understood the trade-offs behind the numbers. It felt
+              like learning finance with a director, a strategist, and a coach in the room."
+            </p>
+            <cite>Product manager, Dublin</cite>
+          </blockquote>
+          <blockquote data-reveal>
+            <p>
+              "The dashboards made our team stop guessing. We left with a
+              common language for cash, risk, and growth."
+            </p>
+            <cite>Founder, remote-first startup</cite>
+          </blockquote>
+          <blockquote data-reveal>
+            <p>
+              "The course made money feel less mysterious and more operational.
+              That changed how I plan every month."
+            </p>
+            <cite>Career switcher, Cork</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="faq">
+        <div class="container faq-grid">
+          <div data-reveal>
+            <p class="eyebrow">FAQ</p>
+            <h2>Questions before the opening credits.</h2>
+            <p>
+              StackU is education, not individual financial advice. The program
+              helps you understand decisions and build a process.
+            </p>
+          </div>
+          <div class="faq-list" data-reveal>
+            <details open>
+              <summary>Is this for beginners?</summary>
+              <p>Yes. The first chapter builds vocabulary and confidence before advanced strategy.</p>
+            </details>
+            <details>
+              <summary>Do I need investment experience?</summary>
+              <p>No. You need curiosity, a willingness to practice, and your own goals.</p>
+            </details>
+            <details>
+              <summary>Can a company book it for a team?</summary>
+              <p>Yes. Team cohorts include private workshops and business-specific scenarios.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-cta" id="contact">
+        <div class="container contact-shell">
+          <div class="contact-copy" data-reveal>
+            <p class="eyebrow">Final scene</p>
+            <h2>Apply for the next cohort.</h2>
+            <p>
+              Tell us where you are now and what decision you want to make with
+              more confidence. We will recommend the best StackU track.
+            </p>
+          </div>
+          <form class="contact-form" data-lead-form data-reveal>
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required minlength="2" />
             </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                pattern="\+?[0-9\s\-\(\)]{7,}"
-                title="Please enter a valid phone number"
-              />
-            </div>
-            <div class="form-group">
+            <div class="form-row">
               <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                title="Please enter a valid email address"
-              />
+              <input id="email" name="email" type="email" autocomplete="email" required />
             </div>
-            <div class="form-group">
-              <label for="service">Service</label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Choose a service</option>
-                <option value="evaluation">Financial Planning</option>
-                <option value="strategy">Investment Strategy</option>
-                <option value="management">Financial Management</option>
-                <option value="innovation">Innovative Solutions</option>
+            <div class="form-row">
+              <label for="goal">Primary goal</label>
+              <select id="goal" name="goal" required>
+                <option value="">Choose a goal</option>
+                <option>Build personal finance confidence</option>
+                <option>Prepare for a finance career move</option>
+                <option>Train a team or startup</option>
               </select>
             </div>
-            <button type="submit" class="primary-btn">Send Message</button>
+            <div class="form-row">
+              <label for="message">Context</label>
+              <textarea id="message" name="message" rows="4" placeholder="What would you like to understand better?"></textarea>
+            </div>
+            <button class="primary-btn" type="submit">Request cohort invite</button>
+            <p class="form-note" data-form-status aria-live="polite">
+              Response time: within one business day.
+            </p>
           </form>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d721.3908400132968!2d-79.3154189303312!3d43.67805009819383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cc7304a2beb9%3A0x13b6d898c9a5f20a!2s1801%20Gerrard%20St%20E%2C%20Toronto%2C%20ON%20M4L%202B4!5e0!3m2!1sen!2sca!4v1746695216359!5m2!1sen!2sca"
-            loading="lazy"
-            class="contact-map"
-          ></iframe>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="container">
-        <div class="footer-menu">
-          <h3>Menu</h3>
-          <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./about.html">About</a></li>
-            <li><a href="./price.html">Pricing</a></li>
-            <li><a href="./blog.html">Blog</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-menu">
-          <h3>Service Pages</h3>
-          <ul>
-            <li>
-              <a href="./cookie-policy.html">Cookie Policy</a>
-            </li>
-            <li>
-              <a href="./privacy-policy.html">Privacy Policy</a>
-            </li>
-            <li><a href="./terms-of-use.html">Terms of Use</a></li>
-            <li><a href="./business-model.html">Business Model</a></li>
-            <li><a href="./disclaimer.html">Disclaimer</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h3>Contact Information</h3>
-          <p><strong>Phone:</strong> +1 416 546 6261</p>
+      <div class="container footer-grid">
+        <div>
+          <a class="logo footer-logo" href="./index.html">
+            <span class="logo-mark">S</span>
+            <span class="logo-copy">
+              <strong>StackU</strong>
+              <span>Academy</span>
+            </span>
+          </a>
           <p>
-            <strong>Address:</strong> 1801 Gerrard St E, Toronto, ON M4L 2B4,
-            Canada
-          </p>
-          <p>
-            <strong>Email:</strong>
-            <a href="mailto:info@stacku.ca">info@stacku.ca</a>
+            Cinematic finance education for people who want sharper decisions,
+            calmer planning, and a stronger relationship with money.
           </p>
         </div>
-        <p class="footer-rights">© All rights reserved 2025</p>
+        <nav aria-label="Footer navigation">
+          <h3>Explore</h3>
+          <a href="./about.html">About</a>
+          <a href="./price.html">Pricing</a>
+          <a href="./blog.html">Insights</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+        <nav aria-label="Legal navigation">
+          <h3>Legal</h3>
+          <a href="./privacy-policy.html">Privacy Policy</a>
+          <a href="./terms-of-use.html">Terms of Use</a>
+          <a href="./cookie-policy.html">Cookie Policy</a>
+          <a href="./disclaimer.html">Disclaimer</a>
+        </nav>
+        <div>
+          <h3>Studio</h3>
+          <p>Dublin, Ireland</p>
+          <p><a href="mailto:hello@stacku.academy">hello@stacku.academy</a></p>
+          <p class="footer-note">
+            Educational content only. Not personal financial, tax, or investment advice.
+          </p>
+        </div>
       </div>
+      <p class="footer-rights">© 2026 StackU Academy. All rights reserved.</p>
     </footer>
-
-    <div class="mobile-menu mobileMenu">
-      <button class="close-btn closeBtn">
-        <svg>
-          <use href="./images/sprite.svg#close"></use>
-        </svg>
-      </button>
-      <nav class="mobile-nav">
-        <ul class="mobile-nav-list">
-          <li><a class="mobile-nav-link" href="./index.html">Home</a></li>
-          <li><a class="mobile-nav-link" href="./about.html">About</a></li>
-          <li><a class="mobile-nav-link" href="./price.html">Pricing</a></li>
-          <li><a class="mobile-nav-link" href="./blog.html">Blog</a></li>
-        </ul>
-      </nav>
-      <a class="primary-btn mobile-nav-link" href="./contact.html">Contact</a>
-    </div>
 
     <div class="cookie-popup" id="cookiePopup">
       <div class="cookie-popup-content">
         <h2>Cookie Usage</h2>
         <p>
-          We use cookies to enhance your experience on our site. By continuing
-          to browse, you agree to our
-          <a href="./cookie-policy.html">Cookie Policy</a> and our
+          We use cookies to improve the experience. By continuing, you agree to
+          our <a href="./cookie-policy.html">Cookie Policy</a> and
           <a href="./privacy-policy.html">Privacy Policy</a>.
         </p>
-        <button class="primary-btn" id="acceptCookies">Accept</button>
+        <button class="primary-btn" type="button" id="acceptCookies">Accept</button>
       </div>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="./js/swiper.js"></script>
-  <script src="./js/cookie.js"></script>
-  <script src="./js/header-menu.js"></script>
-  <script src="./js/script.js"></script>
 </html>

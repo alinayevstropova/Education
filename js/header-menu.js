@@ -1,40 +1,45 @@
-const body = document.body;
-const header = document.querySelector(".header");
-
+const header = document.querySelector("[data-header]");
 const burgerBtn = document.querySelector(".burgerBtn");
 const headerMenu = document.querySelector(".mobileMenu");
 const closeBtn = document.querySelector(".closeBtn");
 
-function openMenu() {
-  headerMenu.classList.add("mobile-menu-active");
+function setMenuState(isOpen) {
+  if (!headerMenu || !burgerBtn) return;
+  headerMenu.classList.toggle("mobile-menu-active", isOpen);
+  headerMenu.setAttribute("aria-hidden", String(!isOpen));
+  burgerBtn.setAttribute("aria-expanded", String(isOpen));
 }
 
-function closeMenu() {
-  headerMenu.classList.remove("mobile-menu-active");
-}
+burgerBtn?.addEventListener("click", () => setMenuState(true));
+closeBtn?.addEventListener("click", () => setMenuState(false));
 
-burgerBtn.addEventListener("click", openMenu);
-closeBtn.addEventListener("click", closeMenu);
-headerMenu.addEventListener("click", (e) => {
-  if (e.target.classList.contains("mobile-nav-link")) {
-    closeMenu();
+headerMenu?.addEventListener("click", (event) => {
+  if (event.target.closest(".mobile-nav-link")) {
+    setMenuState(false);
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const currentPage =
-    window.location.pathname.split("/")[1].split(".")[0] || "index";
-
-  const setActiveLink = (selector) => {
-    document.querySelectorAll(selector).forEach((link) => {
-      const linkPage = link.getAttribute("href").split("/")[1].split(".")[0];
-
-      if (linkPage === currentPage) {
-        link.classList.add("header-link-active");
-      }
-    });
-  };
-
-  setActiveLink(".header-nav a");
-  setActiveLink(".mobile-nav a, .mobile-nav-link");
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    setMenuState(false);
+  }
 });
+
+function updateHeaderState() {
+  header?.classList.toggle("is-scrolled", window.scrollY > 24);
+}
+
+function setActiveLinks() {
+  const currentFile = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".header-nav a, .mobile-nav a").forEach((link) => {
+    const href = link.getAttribute("href") || "";
+    const hrefFile = href.split("#")[0].split("/").pop() || "index.html";
+    if (hrefFile === currentFile) {
+      link.classList.add("header-link-active");
+    }
+  });
+}
+
+updateHeaderState();
+setActiveLinks();
+window.addEventListener("scroll", updateHeaderState, { passive: true });
